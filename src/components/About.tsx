@@ -89,7 +89,7 @@ const About: React.FC = () => {
           </ul>
         </div>
 
-        <p className="text-lg">
+        <p className="text-lg pb-10">
           As I continue to evolve as a developer, I’m excited to take on new challenges, collaborate with like-minded professionals, and create cutting-edge applications that make a difference. My mission is to build solutions that are not only functional but also deliver outstanding experiences across web and mobile platforms.
         </p>
       </div>
