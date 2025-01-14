@@ -1,15 +1,39 @@
-
 const Contact = () => {
   return (
     <section id="contact" className="p-8 bg-sec text-white">
-      <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
-      <p>If you would like to work together or ask questions, feel free to reach out!</p>
-      <form className="mt-4">
-        <input type="text" placeholder="Your Name" className="p-2 w-full mb-4" />
-        <input type="email" placeholder="Your Email" className="p-2 w-full mb-4" />
-        <textarea placeholder="Your Message" className="p-2 w-full mb-4"></textarea>
-        <button type="submit" className="bg-sec1 text-white p-2 w-full">Send Message</button>
-      </form>
+      <div className="max-w-lg mx-auto p-8  rounded-2xl border-2 border-transparent bg-clip-padding bg-gradient-to-tl from-[#B9C2EF] via-[#B9C2EF] to-transparent">
+        <form className="flex flex-col gap-5">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="email" className="text-pry text-xs font-semibold">Your Email</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              required
+              className="w-full p-3 rounded-lg text-pry bg-transparent border border-[#414141] focus:outline-none focus:border-[#F28908] "
+              placeholder="Your Email"
+            />
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            <label htmlFor="textarea" className="text-pry text-xs font-semibold">Send me a message</label>
+            <textarea
+              name="textarea"
+              id="textarea"
+              rows={5}
+              className="w-full p-3 rounded-lg text-pry bg-transparent border border-[#414141] focus:outline-none focus:border-[#F28908] "
+              placeholder="Send me a message"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="w-40 self-start mt-2 bg-sec text-white font-semibold p-3 rounded-md border hover:bg-white hover:text-pry hover:border-white transition-colors"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </section>
   );
 };

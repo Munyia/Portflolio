@@ -6,15 +6,19 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'bg': "url('/path-to-your-image.jpg')",
+      },
+
       fontFamily: {
-        plus: ['Plus Jakarta Sans', 'sans-serif'], 
-        rob: ['Roobert', 'sans-serif'], 
+        play: ['Playfair Display', 'sans-serif'], 
+        jet: ['JetBrains Mono', 'sans-serif'], 
         merri: ['Merriweather', 'sans-serif'], 
       },
       colors: {
-        pry: "#FF8355",
-        sec: "#088484",
-        sec1: "#EDAD08",
+        pry: "#F28908",
+        sec: "#132456",
+        sec1: "#B9C2EF",
       },
     },
   },
