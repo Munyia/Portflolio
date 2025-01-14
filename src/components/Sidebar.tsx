@@ -10,7 +10,7 @@ import { munyia } from "../assets";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="lg:w-[20%] lg:fixed lg:top-0 lg:h-screen lg:backdrop-blur-md lg:bg-black text-white lg:shadow-md lg:px-6">
+    <div className="lg:w-[20%] lg:fixed lg:top-0 lg:h-screen lg:backdrop-blur-md lg:bg-white text-black lg:shadow-md lg:px-6">
       <div className="hidden lg:flex flex-col items-center h-full">
         <img
           src={munyia}

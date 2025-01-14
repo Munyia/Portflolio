@@ -1,7 +1,7 @@
 const About: React.FC = () => {
   return (
     <section id="about" className="">
-      <div className="px-6 l max-w-4xl mx-auto">
+      <div className=" max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-sec mb-4">About Me</h2>
         <p className="text-lg text-gray-800 mb-4">
           I'm a passionate <span className="font-semibold">JavaScript/TypeScript developer</span> based in <span className="font-semibold">Abuja, Nigeria</span>, with a strong drive to continuously enhance my skills. Currently diving into the world of <span className="font-semibold">Flutter</span> and <span className="font-semibold">React Native</span> to expand my horizons in mobile app development.
@@ -39,7 +39,7 @@ const About: React.FC = () => {
         </span>.
       </span>
     </li>
-    <li className="flex items-center bg-sec1 p-4 rounded-lg shadow-md lg:w-[48%]">
+    <li className="flex items-center  p-4 rounded-lg shadow-md lg:w-[48%]">
       <img
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
         alt="JavaScript Icon"
@@ -66,7 +66,7 @@ const About: React.FC = () => {
         </span>.
       </span>
     </li>
-    <li className="flex items-center lg:mx-auto bg-sec1 p-4 rounded-lg shadow-md lg:w-[48%]">
+    <li className="flex items-center lg:mx-auto  p-4 rounded-lg shadow-md lg:w-[48%]">
       <img
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-original.svg"
         alt="Code Icon"

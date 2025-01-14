@@ -37,7 +37,7 @@ const Layout: React.FC = () => {
       {/* Main Content Area */}
       <div className="flex-1 lg:w-[80%] lg:pl-[20%] h-full lg:relative">
         {/* Page Title & Hamburger Menu */}
-        <div className="flex items-center justify-between p-6 text-2xl lg:text-3xl font-bold text-sec">
+        <div className="flex items-center justify-between p-6 text-3xl lg:text-3xl font-extrabold text-sec1">
           <h1>{pageTitle}</h1>
           {/* Hamburger Menu for small screens */}
           <div className="lg:hidden">
@@ -96,7 +96,7 @@ const Layout: React.FC = () => {
         </main>
 
         {/* Standard Navigation for Large Screens */}
-        <div className="hidden lg:flex  absolute top-0 right-0 w-1/2 h-[10vh] drop-shadow-lg rounded-s-2xl bg-black text-white shadow-md backdrop-blur-md z-50 p-4 justify-end">
+        <div className="hidden lg:flex  absolute top-0 right-0 w-1/2 h-[10vh] drop-shadow-lg rounded-s-2xl  bg-white/30 shadow-md backdrop-blur-md z-50 p-4 justify-end">
           <header className="flex  flex-col justify-between h-full">
             <nav className="flex justify-center gap-6">
               <Link
