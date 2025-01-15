@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <section id="contact" className="p-8 bg-sec text-white">
+    <section id="contact" className="p-8 bg-sec lg:h-full h-screen text-white">
       <div className="max-w-lg mx-auto p-8 rounded-2xl border-2 border-transparent bg-clip-padding bg-gradient-to-tl from-[#B9C2EF] via-[#B9C2EF] to-transparent">
         <form
           action="https://formspree.io/f/mrbbdzol" // Replace 'your-form-id' with your actual Formspree form ID
