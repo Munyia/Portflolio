@@ -7,4 +7,4 @@ import nb from "./res/nb.png"
 import ws from "./res/ws.png"
 
 
-export {munyia, bg, aster, bb, cc, nb, ws  }
+export {munyia, bg, aster, bb, cc, nb, ws }
