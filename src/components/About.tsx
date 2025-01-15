@@ -51,7 +51,7 @@ const About: React.FC = () => {
         </p>
 
         <div className="p-6 text-sec justify-center mb-6">
-        <div className="text-3xl mb-3 text-center text-sec font-bold">
+        <div className="text-base lg:text-3xl mb-3 text-center text-sec font-bold">
           {displayedText.split("").map((letter, index) => (
             <span
               key={index}
