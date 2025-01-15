@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { munyia } from "../assets";
+import { munyia } from "../../public/res";
 
 const Sidebar: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { munyia } from "../assets";
+import { munyia } from "../../public/res";
 
 const About: React.FC = () => {
   const [displayedText, setDisplayedText] = useState<string>("");
