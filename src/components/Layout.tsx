@@ -35,7 +35,7 @@ const Layout: React.FC = () => {
       <Sidebar />
 
       {/* Main Content Area */}
-      <div className="flex-1 lg:w-[80%] lg:pl-[20%] h-full lg:relative">
+      <div className="flex-1 lg:w-[80vw] lg:pl-[20vw] h-full lg:relative">
         {/* Page Title & Hamburger Menu for Small Screens */}
         <div className="fixed top-0 left-0 flex-col flex w-full z-50 bg-white/30 backdrop-blur-md p-4 shadow-lg lg:hidden ">
           <div className="flex justify-between">

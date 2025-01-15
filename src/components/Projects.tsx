@@ -8,7 +8,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { aster, bb, cc, nb, ws } from "../assets";
+import {   bb, cc, nb, ws } from "../assets";
 
 const Projects = () => {
    const [displayedText, setDisplayedText] = useState<string>("");
@@ -56,7 +56,7 @@ const Projects = () => {
         {/* Project 1 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src={aster}
+            src={bb}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
