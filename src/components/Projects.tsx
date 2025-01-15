@@ -8,7 +8,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { bb, cc, nb, ws,  } from "../../public/res";
+import { bb, cc, nb, ws, aster  } from "../../public/res";
 
 
 const Projects = () => {
@@ -57,7 +57,7 @@ const Projects = () => {
         {/* Project 1 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src={cc}
+            src={aster}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
