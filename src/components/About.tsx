@@ -1,27 +1,69 @@
+import { useEffect, useState } from "react";
 import { munyia } from "../assets";
 
 const About: React.FC = () => {
+  const [displayedText, setDisplayedText] = useState<string>("");
+  const fullText = "What I’m Currently Working On";
+  const animationDelay = 300; // 0.3 seconds between letters
+  const stayDuration = 5000; // 5 seconds when the full text is displayed
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    let currentIndex = 0;
+
+    const animateText = () => {
+      if (currentIndex < fullText.length) {
+        setDisplayedText(fullText.slice(0, currentIndex + 1));
+        currentIndex++;
+        timeout = setTimeout(animateText, animationDelay);
+      } else {
+        timeout = setTimeout(() => {
+          currentIndex = 0;
+          setDisplayedText("");
+          animateText();
+        }, stayDuration);
+      }
+    };
+
+    animateText();
+
+    return () => clearTimeout(timeout);
+  }, [fullText]);
+
+
   return (
-    <section id="about" className="bg-sec1">
-      <div className="max-w-4xl mx-auto">
-        
+    <section id="about" className="bg-sec1 py-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Image for small devices only */}
         <img
           src={munyia}
           alt="Your Name"
-          className="rounded-full h-[200px] w-[200px] object-cover object-top mb-4 mx-auto sm:hidden"
+          className="rounded-full h-48 w-48 object-cover object-top mb-6 mx-auto sm:hidden"
         />
 
-        <p className="text-lg mb-4">
-          I'm a passionate <span className="font-semibold">JavaScript/TypeScript developer</span> based in <span className="font-semibold">Abuja, Nigeria</span>, with a strong drive to continuously enhance my skills. Currently diving into the world of <span className="font-semibold">Flutter</span> and <span className="font-semibold">React Native</span> to expand my horizons in mobile app development.
+        <p className="text-lg mb-4 ">
+          I'm a passionate <span className="font-semibold">JavaScript/TypeScript developer</span> based in{" "}
+          <span className="font-semibold">Abuja, Nigeria</span>, with a strong drive to continuously enhance my skills. Currently diving into the world of{" "}
+          <span className="font-semibold">Flutter</span> and <span className="font-semibold">React Native</span> to expand my horizons in mobile app development.
         </p>
-        <p className="text-lg mb-4">
+        <p className="text-lg mb-4 ">
           I focus on writing clean, efficient code that solves problems and delivers seamless, intuitive user experiences. I enjoy building reliable and modern web applications that meet user needs and stand the test of time.
         </p>
 
-        <div className="p-4 font-merri rounded-lg shadow-sm mb-4">
-          <p className="font-bold text-2xl font-play justify-center text-center mb-4">What I’m Currently Working On:</p>
-          <ul className="flex flex-col lg:flex-row lg:flex-wrap lg:gap-4 space-y-4 lg:space-y-0">
+        <div className="p-6 text-sec justify-center mb-6">
+        <div className="text-3xl mb-3 text-center text-sec font-bold">
+          {displayedText.split("").map((letter, index) => (
+            <span
+              key={index}
+              className={`dancing-text`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
+
+          <ul className="flex flex-col lg:flex-row lg:flex-wrap lg:gap-6 space-y-4 lg:space-y-0">
             <li className="flex bg-sec text-pry items-center font-merri p-4 rounded-lg shadow-md lg:w-[48%]">
               <img
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
@@ -89,7 +131,7 @@ const About: React.FC = () => {
           </ul>
         </div>
 
-        <p className="text-lg pb-10">
+        <p className="text-lg  pb-6">
           As I continue to evolve as a developer, I’m excited to take on new challenges, collaborate with like-minded professionals, and create cutting-edge applications that make a difference. My mission is to build solutions that are not only functional but also deliver outstanding experiences across web and mobile platforms.
         </p>
       </div>

@@ -5,11 +5,13 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Resume from "./components/Resume";
+import Scroll from "./components/Scroll";
 
 
 const App: React.FC = () => {
   return (
     <Router>
+      <Scroll /> 
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<About />} /> {/* Default to About page */}

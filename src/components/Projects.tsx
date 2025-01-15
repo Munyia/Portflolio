@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FaReact } from "react-icons/fa";
 import {
   SiCss3,
@@ -7,16 +8,55 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+import { aster, bb, cc, nb, ws } from "../assets";
 
 const Projects = () => {
+   const [displayedText, setDisplayedText] = useState<string>("");
+    const fullText = "My Projects";
+    const animationDelay = 300; // 0.3 seconds between letters
+    const stayDuration = 5000; // 5 seconds when the full text is displayed
+  
+    useEffect(() => {
+      let timeout: ReturnType<typeof setTimeout>;
+      let currentIndex = 0;
+  
+      const animateText = () => {
+        if (currentIndex < fullText.length) {
+          setDisplayedText(fullText.slice(0, currentIndex + 1));
+          currentIndex++;
+          timeout = setTimeout(animateText, animationDelay);
+        } else {
+          timeout = setTimeout(() => {
+            currentIndex = 0;
+            setDisplayedText("");
+            animateText();
+          }, stayDuration);
+        }
+      };
+  
+      animateText();
+  
+      return () => clearTimeout(timeout);
+    }, [fullText]);
+  
   return (
     <section id="works" className="p-8">
-      <h2 className="text-2xl font-bold mb-4">My Works</h2>
+      <div className="text-3xl mb-3  text-sec font-bold">
+          {displayedText.split("").map((letter, index) => (
+            <span
+              key={index}
+              className={`dancing-text`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {/* Project 1 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src="src/assets/res/aster.PNG"
+            src={aster}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
@@ -58,7 +98,7 @@ const Projects = () => {
         {/* Project 2 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src="src/assets/res/wss.PNG"
+            src={ws}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
@@ -88,7 +128,7 @@ const Projects = () => {
         {/* Project 3 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src="src/assets/res/by.PNG"
+            src={bb}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
@@ -128,7 +168,7 @@ const Projects = () => {
         {/* Project 4 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src="src/assets/res/nb.PNG"
+            src={nb}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
@@ -169,7 +209,7 @@ const Projects = () => {
         {/* Project 5 */}
         <div className="bg-sec text-white p-4 shadow-lg rounded-3xl hover:shadow-2xl transition-all">
           <img
-            src="src/assets/res/coffee.PNG"
+            src={cc}
             alt="Project 1"
             className="w-full h-48 object-cover rounded-lg mb-4 sm:h-64 md:h-48"
           />
