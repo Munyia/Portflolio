@@ -301,7 +301,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                 href="https://wa.me/2348174365032"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 bg-highlight-500 hover:bg-highlight-600 text-white font-body font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
+                className="inline-flex items-center px-6 py-3  bg-gradient-to-br from-primary-900 to-accent-600 
+               dark:from-neutral-500 dark:to-neutral-500 hover:bg-highlight-600 text-white font-body font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
               >
                 Schedule a Call
               </motion.a>

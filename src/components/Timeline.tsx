@@ -150,146 +150,142 @@ const Timeline: React.FC = () => {
     }
   };
 
-  return (
-    <section id="timeline" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary-900 dark:text-white mb-4">
-            My Journey
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 font-body max-w-2xl mx-auto">
-            A timeline of growth, achievements, and continuous learning in software development
-          </p>
-        </motion.div>
+return (
+  <section id="timeline" className="py-20 bg-white dark:bg-gray-900">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary-900 dark:text-white mb-4">
+          My Journey
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 font-body max-w-2xl mx-auto">
+          A timeline of growth, achievements, and continuous learning in software development
+        </p>
+      </motion.div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 via-accent-500 to-highlight-500 rounded-full"></div>
+      <div className="relative">
+        {/* Timeline Line for larger screens */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-500 via-accent-500 to-highlight-500 rounded-full"></div>
 
-          <div className="space-y-12">
-            {timelineEvents.map((event, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-              >
-                {/* Content Card */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                  <motion.div
-                    whileHover={{ scale: 1.02, y: -5 }}
-                    className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    {/* Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <span className={`px-3 py-1 text-xs font-body font-semibold bg-gradient-to-r ${getTypeColor(event.type)} text-white rounded-full`}>
-                        {getTypeLabel(event.type)}
-                      </span>
-                      <span className="text-2xl font-heading font-bold text-primary-900 dark:text-white">
-                        {event.year}
-                      </span>
-                    </div>
-
-                    {/* Title and Company */}
-                    <h3 className="text-xl font-heading font-bold text-primary-900 dark:text-white mb-2">
-                      {event.title}
-                    </h3>
-                    <div className="flex items-center text-accent-600 dark:text-accent-400 font-body font-semibold mb-2">
-                      <span>{event.company}</span>
-                    </div>
-                    <div className="flex items-center text-gray-500 dark:text-gray-400 font-body text-sm mb-4">
-                      <MapPin className="w-4 h-4 mr-1" />
-                      {event.location}
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-gray-600 dark:text-gray-300 font-body mb-4 leading-relaxed">
-                      {event.description}
-                    </p>
-
-                    {/* Achievements */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-body font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                        Key Achievements:
-                      </h4>
-                      <ul className="space-y-1">
-                        {event.achievements.map((achievement, achIndex) => (
-                          <li key={achIndex} className="text-sm text-gray-600 dark:text-gray-400 font-body flex items-center">
-                            <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
-                      {event.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 py-1 text-xs font-body font-medium bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Timeline Node */}
-                <div className="relative z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.2 }}
-                    className={`w-12 h-12 bg-gradient-to-br ${getTypeColor(event.type)} rounded-full flex items-center justify-center text-white shadow-lg`}
-                  >
-                    {event.icon}
-                  </motion.div>
-                </div>
-
-                {/* Empty Space */}
-                <div className="w-5/12"></div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-500/20 dark:to-accent-500/20 rounded-2xl p-8 border border-primary-100 dark:border-primary-800">
-            <h3 className="text-2xl font-heading font-bold text-primary-900 dark:text-white mb-4">
-              What's Next?
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 font-body mb-6 max-w-2xl mx-auto">
-              I'm always looking for new challenges and opportunities to grow. Let's build something amazing together!
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-br from-primary-900 to-accent-600 dark:bg-primary-500 hover:bg-primary-800 text-white font-body font-semibold rounded-xl transition-colors shadow-lg hover:shadow-xl"
+        <div className="space-y-12">
+          {timelineEvents.map((event, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className={`flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}
             >
-              <Calendar className="mr-2" size={20} />
-              Let's Connect
-            </motion.button>
-          </div>
-        </motion.div>
+              {/* Content */}
+              <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'} mb-6 md:mb-0`}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`px-3 py-1 text-xs font-body font-semibold bg-gradient-to-r ${getTypeColor(event.type)} text-white rounded-full`}>
+                      {getTypeLabel(event.type)}
+                    </span>
+                    <span className="text-2xl font-heading font-bold text-primary-900 dark:text-white">
+                      {event.year}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-heading font-bold text-primary-900 dark:text-white mb-2">
+                    {event.title}
+                  </h3>
+                  <div className="flex items-center text-accent-600 dark:text-accent-400 font-body font-semibold mb-2">
+                    <span>{event.company}</span>
+                  </div>
+                  <div className="flex items-center text-gray-500 dark:text-gray-400 font-body text-sm mb-4">
+                    <MapPin className="w-4 h-4 mr-1" />
+                    {event.location}
+                  </div>
+
+                  <p className="text-gray-600 dark:text-gray-300 font-body mb-4 leading-relaxed">
+                    {event.description}
+                  </p>
+
+                  <div className="mb-4">
+                    <h4 className="text-sm font-body font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                      Key Achievements:
+                    </h4>
+                    <ul className="space-y-1">
+                      {event.achievements.map((achievement, achIndex) => (
+                        <li key={achIndex} className="text-sm text-gray-600 dark:text-gray-400 font-body flex items-center">
+                          <div className="w-1.5 h-1.5 bg-accent-500 rounded-full mr-2"></div>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {event.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-2 py-1 text-xs font-body font-medium bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Timeline Dot */}
+              <div className="relative z-10 mb-6 md:mb-0">
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  className={`w-12 h-12 bg-gradient-to-br ${getTypeColor(event.type)} rounded-full flex items-center justify-center text-white shadow-lg`}
+                >
+                  {event.icon}
+                </motion.div>
+              </div>
+
+              {/* Spacer for layout symmetry on desktop */}
+              <div className="hidden md:block md:w-5/12"></div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </section>
-  );
+
+      {/* Call to Action */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="text-center mt-16"
+      >
+        <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-500/20 dark:to-accent-500/20 rounded-2xl p-8 border border-primary-100 dark:border-primary-800">
+          <h3 className="text-2xl font-heading font-bold text-primary-900 dark:text-white mb-4">
+            What's Next?
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 font-body mb-6 max-w-2xl mx-auto">
+            I'm always looking for new challenges and opportunities to grow. Let's build something amazing together!
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-br from-primary-900 to-accent-600 dark:bg-primary-500 hover:bg-primary-800 text-white font-body font-semibold rounded-xl transition-colors shadow-lg hover:shadow-xl"
+          >
+            <Calendar className="mr-2" size={20} />
+            Let's Connect
+          </motion.button>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
+
 };
 
 export default Timeline;

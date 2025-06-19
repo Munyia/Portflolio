@@ -19,7 +19,7 @@ const Skills: React.FC = () => {
       title: "Backend Development",
       skills: [
         { name: "Node.js", level: 98, color: "bg-green-600" },
-        { name: "Express.js", level: 98, color: "bg-gray-700" },
+        { name: "Express.js", level: 98, color: "bg-gray-400" },
         { name: "MongoDB", level: 98, color: "bg-green-700" },
         { name: "MySQL", level: 98, color: "bg-blue-700" },
         { name: "RESTful APIs", level: 98, color: "bg-purple-600" },

@@ -55,23 +55,47 @@ const CodeQuality: React.FC = () => {
         const totalStars = reposData.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0);
 
         // Get language statistics from public repos
-        const languageStats: { [key: string]: number } = {};
-        for (const repo of reposData) {
-          if (repo.language) {
-            languageStats[repo.language] = (languageStats[repo.language] || 0) + 1;
-          }
-        }
+const languageStats: { [key: string]: number } = {};
+for (const repo of reposData) {
+  if (repo.language) {
+    languageStats[repo.language] = (languageStats[repo.language] || 0) + 1;
+  }
+}
 
-        // Convert to percentage
-        const totalReposWithLanguage = Object.values(languageStats).reduce((sum: number, count: number) => sum + count, 0);
-        const languages = Object.entries(languageStats)
-          .map(([name, count]) => ({
-            name,
-            percentage: Math.round((count / totalReposWithLanguage) * 100),
-            color: getLanguageColor(name)
-          }))
-          .sort((a, b) => b.percentage - a.percentage)
-          .slice(0, 6);
+// Total count of languages
+const totalReposWithLanguage = Object.values(languageStats).reduce(
+  (sum, count) => sum + count,
+  0
+);
+
+// Step 1: Calculate exact float percentages
+const rawLanguages = Object.entries(languageStats)
+  .map(([name, count]) => ({
+    name,
+    exactPercentage: (count / totalReposWithLanguage) * 100,
+    count,
+    color: getLanguageColor(name),
+  }))
+  .sort((a, b) => b.exactPercentage - a.exactPercentage);
+
+// Step 2: Round percentages and calculate total
+const roundedLanguages = rawLanguages.map(lang => ({
+  name: lang.name,
+  percentage: Math.round(lang.exactPercentage),
+  color: lang.color,
+}));
+
+let totalPercentage = roundedLanguages.reduce((sum, lang) => sum + lang.percentage, 0);
+
+// Step 3: Adjust the last language to make total exactly 100%
+if (totalPercentage !== 100 && roundedLanguages.length > 0) {
+  const diff = 100 - totalPercentage;
+  roundedLanguages[roundedLanguages.length - 1].percentage += diff;
+}
+
+// Optional: limit to top 6 languages
+const languages = roundedLanguages.slice(0, 6);
+
 
         // Calculate estimated private repos (your actual total is 64)
         const actualTotalRepos = 64; // Your actual total including private repos
@@ -409,14 +433,16 @@ const CodeQuality: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8"
           >
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-heading font-bold text-primary-900 dark:text-white">
-                Language Distribution
-              </h3>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                From {githubData.publicRepos} public repos
-              </span>
-            </div>
+           <div className="flex items-center justify-between mb-6">
+  <h3 className="text-2xl font-heading font-bold text-primary-900 dark:text-white">
+    Language Distribution
+  </h3>
+  <span className="text-sm text-gray-500 dark:text-gray-400 text-right">
+    Based on {githubData.publicRepos} public repositories <br />
+    (primary language usage — totals 100%)
+  </span>
+</div>
+
             <div className="space-y-4">
               {githubData.languages.map((lang, index) => (
                 <div key={index} className="space-y-2">

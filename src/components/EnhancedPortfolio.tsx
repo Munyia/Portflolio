@@ -592,23 +592,23 @@ const EnhancedPortfolio: React.FC = () => {
                 </div>
 
                 {/* Actions */}
-           <div className="flex space-x-4">
+<div className="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0 w-full">
   {project.longDescription ? (
     <motion.button
       onClick={() => setSelectedProject(project.id)}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="inline-flex items-center px-6 py-3 bg-primary-700 hover:bg-primary-800 text-white font-body font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
+      className="w-full inline-flex items-center justify-center px-6 py-3 bg-primary-700 hover:bg-primary-800 text-white font-body font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl"
     >
-      <Eye className="mr-2" size={18} />
+      <Eye className="mr-2 w-5 h-5" />
       View Case Study
     </motion.button>
   ) : (
     <button
       disabled
-      className="inline-flex items-center px-6 py-3 bg-gray-400 text-white font-body font-semibold rounded-lg opacity-60 cursor-not-allowed"
+      className="w-full inline-flex items-center justify-center px-6 py-3 bg-gray-400 text-white font-body font-semibold rounded-lg opacity-60 cursor-not-allowed"
     >
-      <Eye className="mr-2" size={18} />
+      <Eye className="mr-2 w-5 h-5" />
       No Case Study
     </button>
   )}
@@ -620,17 +620,17 @@ const EnhancedPortfolio: React.FC = () => {
       whileTap={{ scale: 0.95 }}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center px-6 py-3 bg-gray-300 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-body font-medium rounded-lg transition-colors"
+      className="w-full inline-flex items-center justify-center px-6 py-3 bg-gray-300 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-body font-medium rounded-lg transition-colors"
     >
-      <Github className="mr-2" size={18} />
+      <Github className="mr-2 w-5 h-5" />
       Code
     </motion.a>
   ) : (
     <button
       disabled
-      className="inline-flex items-center px-6 py-3 bg-gray-400 text-white font-body font-medium rounded-lg opacity-60 cursor-not-allowed"
+      className="w-full inline-flex items-center justify-center px-6 py-3 bg-gray-400 text-white font-body font-medium rounded-lg opacity-60 cursor-not-allowed"
     >
-      <Github className="mr-2" size={18} />
+      <Github className="mr-2 w-5 h-5" />
       No Code
     </button>
   )}
@@ -642,21 +642,22 @@ const EnhancedPortfolio: React.FC = () => {
       whileTap={{ scale: 0.95 }}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center px-6 py-3 bg-accent-500 hover:bg-accent-600 text-white font-body font-medium rounded-lg transition-colors"
+      className="w-full inline-flex items-center justify-center px-6 py-3 bg-accent-500 hover:bg-accent-600 text-white font-body font-medium rounded-lg transition-colors"
     >
-      <ExternalLink className="mr-2" size={18} />
+      <ExternalLink className="mr-2 w-5 h-5" />
       Live Demo
     </motion.a>
   ) : (
     <button
       disabled
-      className="inline-flex items-center px-6 py-3 bg-gray-400 text-white font-body font-medium rounded-lg opacity-60 cursor-not-allowed"
+      className="w-full inline-flex items-center justify-center px-6 py-3 bg-gray-400 text-white font-body font-medium rounded-lg opacity-60 cursor-not-allowed"
     >
-      <ExternalLink className="mr-2" size={18} />
+      <ExternalLink className="mr-2 w-5 h-5" />
       No Demo
     </button>
   )}
 </div>
+
 
               </div>
             </motion.div>

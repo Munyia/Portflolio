@@ -34,7 +34,7 @@ const Home: React.FC = () => {
         {/* Decorative Background Blobs */}
         <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-primary-400 via-accent-400 to-transparent rounded-full blur-3xl opacity-30 -z-10 animate-float" />
         <div className="absolute bottom-10 right-0 w-96 h-96 bg-gradient-to-br from-accent-300 via-primary-300 to-transparent rounded-full blur-3xl opacity-20 -z-10 animate-float-slow" />
-  <div className="max-w-7xl  mx-5 grid lg:grid-cols-[1fr_auto_1fr] gap-12 relative px-10">
+  <div className="max-w-7xl  mx-5 grid lg:grid-cols-[1fr_auto_1fr] gap-12 relative px-5">
         {/* HERO COLUMN */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -118,36 +118,38 @@ const Home: React.FC = () => {
   </svg>
 </div>
         {/* ABOUT COLUMN */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="pt-10 space-y-6 z-10"
-        >
-          <h2 className="text-3xl font-heading font-bold text-primary-900 dark:text-white text-right lg:text-left">
-            About Me
-          </h2>
-         <div className="prose prose-lg dark:prose-invert">
-              <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
-                I'm a passionate full-stack developer with expertise in modern web technologies including 
-                React.js, Node.js, and TypeScript. With a background in Geography and Environment from 
-                Imo State University and intensive technical training at GoMyCode, I bring a unique 
-                perspective to problem-solving in software development.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
-                Currently working as a Full-Stack Developer at AsterCart, I specialize in building 
-                scalable e-commerce solutions, admin dashboards, and user-centric applications. 
-                I'm passionate about creating digital solutions that make a real impact on businesses 
-                and communities, from e-commerce platforms to NGO initiatives that help underserved populations.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
-                My diverse project portfolio includes e-commerce platforms like PrinceFynn Medicals, 
-                community-focused NGO solutions like Halimafactor Community Initiatives, and publishing 
-                platforms like WordSmitters and BayBook. I believe in using technology to solve real-world 
-                problems and create meaningful impact.
-              </p>
-            </div>
-        </motion.div>
+       <motion.div
+  initial={{ opacity: 0, x: 30 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8 }}
+  className="pt-10 px-4 sm:px-6 lg:px-0 space-y-6 z-10"
+>
+  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-primary-900 dark:text-white text-center lg:text-left">
+    About Me
+  </h2>
+
+  <div className="prose prose-base sm:prose-lg dark:prose-invert max-w-none text-justify sm:text-left">
+    <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
+      I'm a passionate full-stack developer with expertise in modern web technologies including 
+      React.js, Node.js, and TypeScript. With a background in Geography and Environment from 
+      Imo State University and intensive technical training at GoMyCode, I bring a unique 
+      perspective to problem-solving in software development.
+    </p>
+    <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
+      Currently working as a Full-Stack Developer at AsterCart, I specialize in building 
+      scalable e-commerce solutions, admin dashboards, and user-centric applications. 
+      I'm passionate about creating digital solutions that make a real impact on businesses 
+      and communities, from e-commerce platforms to NGO initiatives that help underserved populations.
+    </p>
+    <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
+      My diverse project portfolio includes e-commerce platforms like PrinceFynn Medicals, 
+      community-focused NGO solutions like Halimafactor Community Initiatives, and publishing 
+      platforms like WordSmitters and BayBook. I believe in using technology to solve real-world 
+      problems and create meaningful impact.
+    </p>
+  </div>
+</motion.div>
+
       </div>
 
         {/* SVG WAVE DIVIDER */}
