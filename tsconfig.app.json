@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "public/res/index.ts"]
+  "include": ["src", "src/assets/res/index.ts"]
 }

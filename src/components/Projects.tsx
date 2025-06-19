@@ -8,7 +8,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { bb, cc, nb, ws, aster  } from "../../public/res";
+import { bb, cc, nb, ws, aster  } from "../assets/res";
 
 
 const Projects = () => {

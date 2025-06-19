@@ -1,27 +1,60 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Projects from "./components/Projects";
-import Resume from "./components/Resume";
-import Scroll from "./components/Scroll";
+import  { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { ThemeProvider } from './contexts/ThemeContext';
+import Navigation from './components/Navigation';
+import Services from './components/Services';
+import Skills from './components/Skills';
+import Timeline from './components/Timeline';
+import EnhancedPortfolio from './components/EnhancedPortfolio';
+import Testimonials from './components/Testimonials';
+import Blog from './components/Blog';
+import CodeQuality from './components/CodeQuality';
+import Certificates from './components/Certificates';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Loader from './components/Loader';
+import Home from './components/Home';
 
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
 
-const App: React.FC = () => {
+  useEffect(() => {
+    // Simulate loading time for assets and animations
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <Router>
-      <Scroll /> 
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<About />} /> {/* Default to About page */}
-          <Route path="contact" element={<Contact />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="resume" element={<Resume />} />
-        </Route>
-      </Routes>
-    </Router>
+    <ThemeProvider>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+        <AnimatePresence mode="wait">
+          {isLoading ? (
+            <Loader key="loader" />
+          ) : (
+            <div key="main-content">
+              <Navigation />
+              <main>
+                <Home />
+                <Services />
+                <Skills />
+                <Timeline />
+                <EnhancedPortfolio />
+                <Testimonials />
+                <Blog />
+                <CodeQuality />
+                <Certificates />
+                <Contact />
+              </main>
+              <Footer />
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
