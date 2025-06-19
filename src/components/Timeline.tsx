@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Award, Code, Users, Rocket, GraduationCap, Globe, Heart } from 'lucide-react';
+import { Calendar, MapPin, Award, Code, Rocket, GraduationCap, Globe, Heart } from 'lucide-react';
 
 const Timeline: React.FC = () => {
   const timelineEvents = [
