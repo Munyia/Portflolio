@@ -7,7 +7,7 @@ const Services: React.FC = () => {
     {
       icon: <Code className="w-8 h-8" />,
       title: "Full-Stack Development",
-      description: "Complete web application development using modern technologies like React, Node.js, and MongoDB.",
+      description: "Complete web/mobile application development using modern technologies like React, React Native Node.js, and MongoDB.",
       features: ["MERN Stack", "RESTful APIs", "Database Design", "Authentication"],
       color: "from-blue-500 to-blue-600"
     },

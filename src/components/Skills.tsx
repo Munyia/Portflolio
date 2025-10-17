@@ -1,19 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGitAlt, FaJs, FaNodeJs, FaReact } from 'react-icons/fa';
+import { FaGitAlt, FaGithub, FaJs, FaNodeJs, FaReact } from 'react-icons/fa';
 import { SiMongodb, SiMysql, SiPostman, SiSupabase, SiTailwindcss, SiTypescript } from 'react-icons/si';
 
 const Skills: React.FC = () => {
   const skillCategories = [
     {
       title: "Frontend Development",
-      skills: [
-        { name: "React.js", level: 95, color: "bg-blue-500" },
-        { name: "JavaScript", level: 95, color: "bg-yellow-500" },
-        { name: "TypeScript", level: 95, color: "bg-blue-600" },
-        { name: "Tailwind CSS", level: 100, color: "bg-cyan-500" },
-        { name: "HTML/CSS", level: 100, color: "bg-orange-500" },
-      ]
+   skills: [
+  { name: "React.js", level: 95, color: "bg-sky-500" },
+  { name: "React Native", level: 90, color: "bg-indigo-500" },
+  { name: "JavaScript", level: 95, color: "bg-yellow-500" },
+  { name: "TypeScript", level: 95, color: "bg-blue-600" },
+  { name: "Tailwind CSS", level: 100, color: "bg-cyan-500" },
+  { name: "HTML/CSS", level: 100, color: "bg-orange-500" },
+]
     },
     {
       title: "Backend Development",
@@ -23,6 +24,7 @@ const Skills: React.FC = () => {
         { name: "MongoDB", level: 98, color: "bg-green-700" },
         { name: "MySQL", level: 98, color: "bg-blue-700" },
         { name: "RESTful APIs", level: 98, color: "bg-purple-600" },
+        { name: "Superbase", level: 98, color: "bg-emerald-400" },
       ]
     },
     {
@@ -38,16 +40,18 @@ const Skills: React.FC = () => {
   ];
 
 const techStack = [
-  { name: 'React.js', icon: <FaReact className="text-sky-400 w-10 h-10" /> },
-  { name: 'Node.js', icon: <FaNodeJs className="text-green-600 w-10 h-10" /> },
-  { name: 'JavaScript', icon: <FaJs className="text-yellow-400 w-10 h-10" /> },
-  { name: 'TypeScript', icon: <SiTypescript className="text-blue-500 w-10 h-10" /> },
-  { name: 'MongoDB', icon: <SiMongodb className="text-green-500 w-10 h-10" /> },
-  { name: 'MySQL', icon: <SiMysql className="text-blue-700 w-10 h-10" /> },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-500 w-10 h-10" /> },
-  { name: 'Git', icon: <FaGitAlt className="text-orange-600 w-10 h-10" /> },
-  { name: 'Postman', icon: <SiPostman className="text-orange-500 w-10 h-10" /> },
-  { name: 'Supabase', icon: <SiSupabase className="text-emerald-400 w-10 h-10" /> },
+  { name: "React.js", icon: <FaReact className="text-sky-400 w-10 h-10" /> },
+  { name: "React Native", icon: <FaReact className="text-indigo-400 w-10 h-10" /> },
+  { name: "Node.js", icon: <FaNodeJs className="text-green-600 w-10 h-10" /> },
+  { name: "JavaScript", icon: <FaJs className="text-yellow-400 w-10 h-10" /> },
+  { name: "TypeScript", icon: <SiTypescript className="text-blue-500 w-10 h-10" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-green-500 w-10 h-10" /> },
+  { name: "MySQL", icon: <SiMysql className="text-blue-700 w-10 h-10" /> },
+  { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-500 w-10 h-10" /> },
+  { name: "Git", icon: <FaGitAlt className="text-orange-600 w-10 h-10" /> },
+   { name: "GitHub", icon: <FaGithub className="text-gray-800 dark:text-white w-10 h-10" /> },
+  { name: "Postman", icon: <SiPostman className="text-orange-500 w-10 h-10" /> },
+  { name: "Supabase", icon: <SiSupabase className="text-emerald-400 w-10 h-10" /> },
 ];
 
   return (
@@ -79,26 +83,33 @@ const techStack = [
           <h3 className="text-2xl font-heading font-semibold text-primary-900 dark:text-white mb-8 text-center">
             Tech Stack
           </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-4">
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center p-4 bg-white dark:bg-gray-700 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer group"
-              >
-                <div className="mb-2 group-hover:scale-110 transition-transform">
-                  {tech.icon}
-                </div>
-                <span className="text-sm font-body font-medium text-gray-700 dark:text-gray-300 text-center">
-                  {tech.name}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 place-items-center">
+                {techStack.map((tech, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{
+                      scale: 1.2,
+                      rotate: 5,
+                      transition: { type: "spring", stiffness: 300 },
+                    }}
+                    whileTap={{ scale: 0.9 }}
+                    className="flex flex-col items-center space-y-2 group"
+                  >
+                    <motion.div
+                      whileHover={{
+                        rotate: [0, 10, -10, 0],
+                        transition: { duration: 0.6 },
+                      }}
+                      className="p-5 rounded-2xl bg-white dark:bg-gray-800 shadow-md group-hover:shadow-lg transition-all"
+                    >
+                      {tech.icon}
+                    </motion.div>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
         </motion.div>
 
         {/* Skill Progress Bars */}
